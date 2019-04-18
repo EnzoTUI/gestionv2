@@ -29,6 +29,5 @@ services:
       - 8080:80
     links:
      - db
-     - minio
     environment:
       MYSQL_ROOT_PASSWORD: 'root'
