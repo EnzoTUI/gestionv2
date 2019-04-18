@@ -3,6 +3,7 @@ version: '3'
 
 services:
   minio:
+    container_name: minio_cont
     image: minio/minio
     volumes:
       - ./export:/export
@@ -14,6 +15,7 @@ services:
     command: server /export
 
   db:
+    container_name: db_cont
     image: mysql:5.7
     restart: always
     environment:
@@ -21,6 +23,7 @@ services:
     volumes:
       - ./database/:/docker-entrypoint-initdb.d
   web:
+    container_name: webapp_cont
     image: tp_enzo:latest
     ports:
       - 8080:80
